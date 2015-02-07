@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\API.cs">
+      <Link>API.cs</Link>
+    </Compile>
+    <Compile Include="Game.cs" />
     <Compile Include="MainServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

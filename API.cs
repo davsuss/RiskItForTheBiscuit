@@ -42,10 +42,13 @@ public enum InstructionType
 }
 public class Instruction
 {
-    [XmlIgnoreAttribute]
-    int[] payload;
+    public Instruction()
+    {
+        payload = new int[20];
+    }
+    public int[] payload;
     public InstructionType type { get; set; }
-    int getpayload(int location)
+    public int getpayload(int location)
     {
         return payload[location];
     }
@@ -73,7 +76,6 @@ public class Instruction
 }
     
 }
-
 
 enum ResponseType
 {

@@ -3,3 +3,8 @@ C:\Users\David\Documents\Visual Studio 2013\Projects\ServerRiskItForTheB\ClientR
 C:\Users\David\Documents\Visual Studio 2013\Projects\ServerRiskItForTheB\ClientRiskItForTheB\bin\Debug\ClientRiskItForTheB.pdb
 C:\Users\David\Documents\Visual Studio 2013\Projects\ServerRiskItForTheB\ClientRiskItForTheB\obj\Debug\ClientRiskItForTheB.exe
 C:\Users\David\Documents\Visual Studio 2013\Projects\ServerRiskItForTheB\ClientRiskItForTheB\obj\Debug\ClientRiskItForTheB.pdb
+C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ClientRiskItForTheB\bin\Debug\ClientRiskItForTheB.exe.config
+C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ClientRiskItForTheB\obj\Debug\ClientRiskItForTheB.exe
+C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ClientRiskItForTheB\obj\Debug\ClientRiskItForTheB.pdb
+C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ClientRiskItForTheB\bin\Debug\ClientRiskItForTheB.exe
+C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ClientRiskItForTheB\bin\Debug\ClientRiskItForTheB.pdb

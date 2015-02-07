@@ -20,9 +20,6 @@ namespace ClientRiskItForTheB
         }
         public static void StartClient()
         {
-            // Data buffer for incoming data.
-            byte[] bytes = new byte[1024];
-
             // Connect to a remote device.
             try
             {
@@ -50,19 +47,17 @@ namespace ClientRiskItForTheB
                     // Send the data through the socket.
                    // int bytesSent = sender.Send(msg);
                     MemoryStream fs = new MemoryStream();
-                    XmlSerializer formatter = new XmlSerializer(typeof(AddressDetails));
-                    AddressDetails x = new AddressDetails();
-                    x.City = "HI";
+                    XmlSerializer formatter = new XmlSerializer(typeof(Instruction));
+                    Instruction x = new Instruction();
+                    x.type = InstructionType.GETMAP;
+                    x.payload[0] = 1;
                     formatter.Serialize(fs, x);
 
                     byte[] buffer = fs.ToArray();
                     Console.WriteLine(buffer.ToString());
-                   // while (true)
-                   // {
-                       // string x = Console.ReadLine();
-                       // byte[] y = GetBytes(x);
-                        sender.Send(buffer);
-                  //  }
+
+                    sender.Send(buffer);
+         
                    
                     // Receive the response from the remote device.
         
