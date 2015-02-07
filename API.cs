@@ -139,5 +139,10 @@ public class Response
         return HelperFunction.SeralizeFunction(this, typeof(Response));
     }
 
+    public static Response deseralize(int bytesread, byte[] data)
+    {
+        return (Response)HelperFunction.deseralize(data, bytesread, typeof(Response));
+    }
+
 }
 

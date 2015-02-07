@@ -30,9 +30,20 @@ namespace ClientRiskItForTheB
                 Console.WriteLine("Please enter IP of server in format X.X.X.X");
                 string ipLine = Console.ReadLine();
                 string[] ipList = ipLine.Split('.');
-                for (int i = 0; i < 4; i++)
+                try
                 {
-                    serverIP[i] = Convert.ToByte(ipList[i]);
+                    for (int i = 0; i < 4; i++)
+                    {
+                        serverIP[i] = Convert.ToByte(ipList[i]);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //default to stephens computer if you dont enter everything correct
+                    serverIP[0] = 172;
+                    serverIP[1] = 31;
+                    serverIP[2] = 218;
+                    serverIP[3] = 244;
                 }
                 /*
                  * NATES IP
@@ -140,19 +151,5 @@ namespace ClientRiskItForTheB
         }
 
         public static Socket sender;
-
-        public static int Main(String[] args)
-        {
-            StartClient();
-            while (true)
-            {
-                sendMessage();
-            }
-
-            closeSocket();
-
-            Console.Read();
-            return 0;
-        }
     }
 }
