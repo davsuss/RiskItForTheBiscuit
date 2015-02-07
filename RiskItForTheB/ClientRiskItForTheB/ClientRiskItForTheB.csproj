@@ -44,7 +44,7 @@
     <Compile Include="..\..\API.cs">
       <Link>API.cs</Link>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
