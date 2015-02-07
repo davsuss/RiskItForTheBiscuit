@@ -3,70 +3,87 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
-namespace COMMONAPI
+enum color
 {
-    enum color
-    {
-        Green,
-        Black,
-        Blue,
-        Red,
-        Yellow
-    }
-
-    struct position
-    {
-        string user;
-        int color;
-        int ArmyStrength;
-    }
-    class Map
-    {
-        static int mapSize = 64;
-
-        position[] map;
-
-        position getPosition(int x)
-        {
-            return map[x];
-        }
-    }
-
-    enum InstructionType
-    {
-        ATTACK,
-        REINFORCE,
-        GETMAP,
-        GETSTATUS,
-        ENDTURN,
-    }
-    class Instruction
-    {
-
-        int[] payload;
-        InstructionType type;
-
-        int getpayload(int location)
-        {
-            return payload[location];
-        }
-        InstructionType getType()
-        {
-            return type;
-        }
-    }
-
-
-    enum ResponseType
-    {
-        UNKNOWNINSTRUCTION,
-        OK,
-        NOTENOUGHARMY,
-        TOOMANYARMY,
-        DONTOWN,
-        SELECTLOCATION,
-    }
-
-
+    Green,
+    Black,
+    Blue,
+    Red,
+    Yellow
 }
+
+struct position
+{
+    string user;
+    int color;
+    int ArmyStrength;
+}
+class Map
+{
+    static int mapSize = 64;
+
+    position[] map;
+
+    position getPosition(int x)
+    {
+        return map[x];
+    }
+}
+
+public enum InstructionType
+{
+    ATTACK,
+    REINFORCE,
+    GETMAP,
+    GETSTATUS,
+    ENDTURN,
+}
+public class Instruction
+{
+    [XmlIgnoreAttribute]
+    int[] payload;
+    public InstructionType type { get; set; }
+    int getpayload(int location)
+    {
+        return payload[location];
+    }
+    public static string instructConvert(InstructionType x){
+    switch(x){
+        case(InstructionType.ATTACK):{
+            return "ATTACK";   
+        }
+        case(InstructionType.REINFORCE):{
+            return "REINFORCE";
+        }
+        case(InstructionType.ENDTURN):{
+            return "ENDTURN";
+        }
+        case(InstructionType.GETMAP):{
+            return "GETMAP";
+        }
+        case(InstructionType.GETSTATUS):{
+            return "GETSTATUS";
+        }
+        default:{
+            return "UNKNOWN";
+        }
+    }
+}
+    
+}
+
+
+enum ResponseType
+{
+    UNKNOWNINSTRUCTION,
+    OK,
+    NOTENOUGHARMY,
+    TOOMANYARMY,
+    DONTOWN,
+    SELECTLOCATION,
+}
+
+
+

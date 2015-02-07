@@ -7,3 +7,9 @@ C:\Users\David\Documents\Visual Studio 2013\Projects\ServerRiskItForTheB\ServerR
 C:\Users\David\Documents\Visual Studio 2013\Projects\RiskItForTheB\ServerRiskItForTheB\bin\Debug\ServerRiskItForTheB.exe.config
 C:\Users\David\Documents\Visual Studio 2013\Projects\RiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.exe
 C:\Users\David\Documents\Visual Studio 2013\Projects\RiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.pdb
+C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\bin\Debug\ServerRiskItForTheB.exe.config
+C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.exe
+C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.pdb
+C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.csprojResolveAssemblyReference.cache
+C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\bin\Debug\ServerRiskItForTheB.exe
+C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\bin\Debug\ServerRiskItForTheB.pdb

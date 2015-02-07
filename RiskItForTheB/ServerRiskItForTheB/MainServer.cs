@@ -7,14 +7,7 @@ using System.IO;
 using  System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
-public class AddressDetails
-{
-    public int HouseNo { get; set; }
-    public string StreetName { get; set; }
-    public string City { get; set; }
-    private string PoAddress { get; set; }
-}  
-
+ 
 
 namespace ServerRiskItForTheB
 {
@@ -112,21 +105,21 @@ namespace ServerRiskItForTheB
                 // There  might be more data, so store the data received so far.
                 //state.sb.Append(Encoding.ASCII.GetString(
                 //    state.buffer, 0, bytesRead));
-                XmlSerializer formattor = new XmlSerializer(typeof(AddressDetails));
-                AddressDetails objFileInfo = new AddressDetails();
+                XmlSerializer formattor = new XmlSerializer(typeof(Instruction));
+                Instruction instruct = new Instruction();
                 byte [] y = new byte[bytesRead];
 
                 Array.Copy(state.buffer, y, bytesRead);
                 MemoryStream ms = new MemoryStream(y);
                 try
                 {
-                    objFileInfo = (AddressDetails)formattor.Deserialize(ms);
+                    instruct = (Instruction)formattor.Deserialize(ms);
                 }
                 catch (Exception x)
                 {
                     Console.WriteLine("Serialzation Failed");
                 }
-                    Console.WriteLine(objFileInfo.City);
+                Console.WriteLine(Instruction.instructConvert(instruct.type));
                 
                 // Check for end-of-file tag. If it is not there, read 
                 // more data.
