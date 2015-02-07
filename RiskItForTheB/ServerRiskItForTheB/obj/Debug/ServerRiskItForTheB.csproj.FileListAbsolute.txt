@@ -13,3 +13,6 @@ C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\obj
 C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.csprojResolveAssemblyReference.cache
 C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\bin\Debug\ServerRiskItForTheB.exe
 C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\bin\Debug\ServerRiskItForTheB.pdb
+C:\Users\liska_000\Documents\GitHub\VTHACKS\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\bin\Debug\ServerRiskItForTheB.exe.config
+C:\Users\liska_000\Documents\GitHub\VTHACKS\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.exe
+C:\Users\liska_000\Documents\GitHub\VTHACKS\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.pdb

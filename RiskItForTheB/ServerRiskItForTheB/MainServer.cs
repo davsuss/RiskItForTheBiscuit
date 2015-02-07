@@ -85,6 +85,8 @@ namespace ServerRiskItForTheB
             // Get the socket that handles the client request.
             Socket listener = (Socket)ar.AsyncState;
             Socket handler = listener.EndAccept(ar);
+
+            Console.WriteLine("I am connected to " + handler.RemoteEndPoint);
            
             curGame.handleSocket(handler);
 
