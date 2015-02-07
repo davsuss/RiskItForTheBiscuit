@@ -1,0 +1,9 @@
+c:\users\jyssbaehr\documents\visual studio 2012\Projects\Risk_VTHacks\Risk_VTHacks\bin\Debug\Risk_VTHacks.exe.config
+c:\users\jyssbaehr\documents\visual studio 2012\Projects\Risk_VTHacks\Risk_VTHacks\bin\Debug\Risk_VTHacks.exe
+c:\users\jyssbaehr\documents\visual studio 2012\Projects\Risk_VTHacks\Risk_VTHacks\bin\Debug\Risk_VTHacks.pdb
+c:\users\jyssbaehr\documents\visual studio 2012\Projects\Risk_VTHacks\Risk_VTHacks\obj\Debug\Risk_VTHacks.csprojResolveAssemblyReference.cache
+c:\users\jyssbaehr\documents\visual studio 2012\Projects\Risk_VTHacks\Risk_VTHacks\obj\Debug\Risk_VTHacks.Form1.resources
+c:\users\jyssbaehr\documents\visual studio 2012\Projects\Risk_VTHacks\Risk_VTHacks\obj\Debug\Risk_VTHacks.Properties.Resources.resources
+c:\users\jyssbaehr\documents\visual studio 2012\Projects\Risk_VTHacks\Risk_VTHacks\obj\Debug\Risk_VTHacks.csproj.GenerateResource.Cache
+c:\users\jyssbaehr\documents\visual studio 2012\Projects\Risk_VTHacks\Risk_VTHacks\obj\Debug\Risk_VTHacks.exe
+c:\users\jyssbaehr\documents\visual studio 2012\Projects\Risk_VTHacks\Risk_VTHacks\obj\Debug\Risk_VTHacks.pdb
