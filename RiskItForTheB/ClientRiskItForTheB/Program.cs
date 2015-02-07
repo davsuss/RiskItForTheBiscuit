@@ -6,7 +6,6 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
-
 namespace ClientRiskItForTheB
 {
 
@@ -26,26 +25,12 @@ namespace ClientRiskItForTheB
             {
                 // Establish the remote endpoint for the socket.
                 // This example uses port 11000 on the local computer.
-                byte[] serverIP = new byte[4];
-                Console.WriteLine("Please enter IP of server in format X.X.X.X");
-                string ipLine = Console.ReadLine();
-                string[] ipList = ipLine.Split('.');
-                for (int i = 0; i < 4; i++)
-                {
-                    serverIP[i] = Convert.ToByte(ipList[i]);
-                }
-                /*
-                 * NATES IP
-                serverIP[0] = 172;
-                serverIP[1] = 31;
-                serverIP[2] = 222;
-                serverIP[3] = 176;
-                 * */
-                IPAddress ipAddress = new IPAddress(serverIP);
+                IPHostEntry ipHostInfo = Dns.Resolve(Dns.GetHostName());
+                IPAddress ipAddress = ipHostInfo.AddressList[0];
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 11000);
 
                 // Create a TCP/IP  socket.
-                sender = new Socket(AddressFamily.InterNetwork,
+                Socket sender = new Socket(AddressFamily.InterNetwork,
                     SocketType.Stream, ProtocolType.Tcp);
 
                 // Connect the socket to the remote endpoint. Catch any errors.
@@ -61,10 +46,54 @@ namespace ClientRiskItForTheB
 
                     // Send the data through the socket.
                    // int bytesSent = sender.Send(msg);
+                    while (true)
+                    {
+                        Console.Write("Enter in a int: ");
+                        int x = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine();
+                        Instruction instruct = new Instruction();
+                        switch(x)
+                        {
+                            case(1):
+                                {
+                                    instruct.type = InstructionType.GETMAP;
+                                    instruct.payload[0] = 1;
+                                    break;
+                                }
+                            case (2):
+                                {
+                                    instruct.type = InstructionType.ATTACK;
+                                    instruct.payload[0] = 2;
+                                    break;
+                                }
+                            case (3):
+                                {
+                                    instruct.type = InstructionType.GETSTATUS;
+                                    instruct.payload[0] = 3;
+                                    break;
+                                }
+                            case (4):
+                                {
+                                    instruct.type = InstructionType.REINFORCE;
+                                    instruct.payload[0] = 4;
+                                    break;
+                                }
+                        }
+
+
+                        MemoryStream fs = new MemoryStream();
+                        XmlSerializer formatter = new XmlSerializer(typeof(Instruction));
+                        formatter.Serialize(fs, instruct);
+                        byte[] buffer = fs.ToArray();
+                        Console.WriteLine(buffer.ToString());
+                        sender.Send(buffer);
+                    }
                    
                     // Receive the response from the remote device.
         
                     // Release the socket.
+                   sender.Shutdown(SocketShutdown.Both);
+                   sender.Close();
 
                 }
                 catch (ArgumentNullException ane)
@@ -86,71 +115,10 @@ namespace ClientRiskItForTheB
                 Console.WriteLine(e.ToString());
             }
         }
-        public static void sendMessage()
-        {
-            Console.Write("Enter in a int: ");
-            int x = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
-            Instruction instruct = new Instruction();
-            switch (x)
-            {
-                case (1):
-                    {
-                        instruct.type = InstructionType.GETMAP;
-                        instruct.payload[0] = 1;
-                        break;
-                    }
-                case (2):
-                    {
-                        instruct.type = InstructionType.ATTACK;
-                        instruct.payload[0] = 2;
-                        break;
-                    }
-                case (3):
-                    {
-                        instruct.type = InstructionType.GETSTATUS;
-                        instruct.payload[0] = 3;
-                        break;
-                    }
-                case (4):
-                    {
-                        instruct.type = InstructionType.REINFORCE;
-                        instruct.payload[0] = 4;
-                        break;
-                    }
-            }
-
-
-            MemoryStream fs = new MemoryStream();
-            XmlSerializer formatter = new XmlSerializer(typeof(Instruction));
-            formatter.Serialize(fs, instruct);
-            byte[] buffer = fs.ToArray();
-            Console.WriteLine(buffer.ToString());
-            sender.Send(buffer);
-        }
-        public static void closeSocket()
-        {
-            sender.Shutdown(SocketShutdown.Both);
-            sender.Close();
-        }
-
-        public static void waitAndGetResponse()
-        {
-
-        }
-
-        public static Socket sender;
 
         public static int Main(String[] args)
         {
             StartClient();
-            while (true)
-            {
-                sendMessage();
-            }
-
-            closeSocket();
-
             Console.Read();
             return 0;
         }
