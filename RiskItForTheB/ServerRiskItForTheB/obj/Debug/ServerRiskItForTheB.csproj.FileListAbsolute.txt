@@ -1,0 +1,9 @@
+C:\Users\David\Documents\Visual Studio 2013\Projects\ServerRiskItForTheB\ServerRiskItForTheB\bin\Debug\ServerRiskItForTheB.exe.config
+C:\Users\David\Documents\Visual Studio 2013\Projects\ServerRiskItForTheB\ServerRiskItForTheB\bin\Debug\ServerRiskItForTheB.exe
+C:\Users\David\Documents\Visual Studio 2013\Projects\ServerRiskItForTheB\ServerRiskItForTheB\bin\Debug\ServerRiskItForTheB.pdb
+C:\Users\David\Documents\Visual Studio 2013\Projects\ServerRiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.csprojResolveAssemblyReference.cache
+C:\Users\David\Documents\Visual Studio 2013\Projects\ServerRiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.exe
+C:\Users\David\Documents\Visual Studio 2013\Projects\ServerRiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.pdb
+C:\Users\David\Documents\Visual Studio 2013\Projects\RiskItForTheB\ServerRiskItForTheB\bin\Debug\ServerRiskItForTheB.exe.config
+C:\Users\David\Documents\Visual Studio 2013\Projects\RiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.exe
+C:\Users\David\Documents\Visual Studio 2013\Projects\RiskItForTheB\ServerRiskItForTheB\obj\Debug\ServerRiskItForTheB.pdb
