@@ -1,0 +1,9 @@
+c:\users\kaitlin\documents\visual studio 2013\Projects\RiskGame\RiskGame\bin\Debug\RiskGame.exe.config
+c:\users\kaitlin\documents\visual studio 2013\Projects\RiskGame\RiskGame\obj\Debug\RiskGame.csprojResolveAssemblyReference.cache
+c:\users\kaitlin\documents\visual studio 2013\Projects\RiskGame\RiskGame\obj\Debug\RiskGame.Form1.resources
+c:\users\kaitlin\documents\visual studio 2013\Projects\RiskGame\RiskGame\obj\Debug\RiskGame.Properties.Resources.resources
+c:\users\kaitlin\documents\visual studio 2013\Projects\RiskGame\RiskGame\obj\Debug\RiskGame.csproj.GenerateResource.Cache
+c:\users\kaitlin\documents\visual studio 2013\Projects\RiskGame\RiskGame\bin\Debug\RiskGame.exe
+c:\users\kaitlin\documents\visual studio 2013\Projects\RiskGame\RiskGame\bin\Debug\RiskGame.pdb
+c:\users\kaitlin\documents\visual studio 2013\Projects\RiskGame\RiskGame\obj\Debug\RiskGame.exe
+c:\users\kaitlin\documents\visual studio 2013\Projects\RiskGame\RiskGame\obj\Debug\RiskGame.pdb
