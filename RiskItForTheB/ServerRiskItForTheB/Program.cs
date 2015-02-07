@@ -59,7 +59,8 @@ namespace ServerRiskItForTheB
 
         public static int Main(String[] args)
         {
-            MainServer.startLisenting();
+            MainServer x = new MainServer();
+            x.startLisenting();
             return 0;
         }
     }

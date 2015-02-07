@@ -46,18 +46,48 @@ namespace ClientRiskItForTheB
 
                     // Send the data through the socket.
                    // int bytesSent = sender.Send(msg);
-                    MemoryStream fs = new MemoryStream();
-                    XmlSerializer formatter = new XmlSerializer(typeof(Instruction));
-                    Instruction x = new Instruction();
-                    x.type = InstructionType.GETMAP;
-                    x.payload[0] = 1;
-                    formatter.Serialize(fs, x);
+                    while (true)
+                    {
+                        Console.Write("Enter in a int: ");
+                        int x = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine();
+                        Instruction instruct = new Instruction();
+                        switch(x)
+                        {
+                            case(1):
+                                {
+                                    instruct.type = InstructionType.GETMAP;
+                                    instruct.payload[0] = 1;
+                                    break;
+                                }
+                            case (2):
+                                {
+                                    instruct.type = InstructionType.ATTACK;
+                                    instruct.payload[0] = 2;
+                                    break;
+                                }
+                            case (3):
+                                {
+                                    instruct.type = InstructionType.GETSTATUS;
+                                    instruct.payload[0] = 3;
+                                    break;
+                                }
+                            case (4):
+                                {
+                                    instruct.type = InstructionType.REINFORCE;
+                                    instruct.payload[0] = 4;
+                                    break;
+                                }
+                        }
 
-                    byte[] buffer = fs.ToArray();
-                    Console.WriteLine(buffer.ToString());
 
-                    sender.Send(buffer);
-         
+                        MemoryStream fs = new MemoryStream();
+                        XmlSerializer formatter = new XmlSerializer(typeof(Instruction));
+                        formatter.Serialize(fs, instruct);
+                        byte[] buffer = fs.ToArray();
+                        Console.WriteLine(buffer.ToString());
+                        sender.Send(buffer);
+                    }
                    
                     // Receive the response from the remote device.
         

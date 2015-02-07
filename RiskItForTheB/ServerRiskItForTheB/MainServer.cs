@@ -11,17 +11,21 @@ using System.Xml.Serialization;
 
 namespace ServerRiskItForTheB
 {
-    static class MainServer
+    class MainServer
     {
-
         // Thread signal.
         public static ManualResetEvent allDone = new ManualResetEvent(false);
+        private Game curGame;
 
+        public MainServer()
+        {
+            curGame = new Game();
+        }
         /// <summary>
         /// This function starts a while(1) loop which waits for connections, the connections are then sent to the GAME class 
         /// to be handled by an individual game
         /// </summary>
-        public static void startLisenting()
+        public  void startLisenting()
         {
             // Data buffer for incoming data.
             byte[] bytes = new Byte[1024];
@@ -73,7 +77,7 @@ namespace ServerRiskItForTheB
         /// This callback is called when a socket connects to the server, currently it just reads in the data form a single socket
         /// </summary>
         /// <param name="ar"></param>
-        public static void AcceptCallback(IAsyncResult ar)
+        public  void AcceptCallback(IAsyncResult ar)
         {
             // Signal the main thread to continue.
             allDone.Set();
@@ -81,14 +85,11 @@ namespace ServerRiskItForTheB
             // Get the socket that handles the client request.
             Socket listener = (Socket)ar.AsyncState;
             Socket handler = listener.EndAccept(ar);
+           
+            curGame.handleSocket(handler);
 
-            // Create the state object.
-            StateObject state = new StateObject();
-            state.workSocket = handler;
-            handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0
-                                 , new AsyncCallback(ReadCallback), state);
         }
-        public static void ReadCallback(IAsyncResult ar)
+        /*public static void ReadCallback(IAsyncResult ar)
         {
             String content = String.Empty;
 
@@ -119,8 +120,9 @@ namespace ServerRiskItForTheB
                 {
                     Console.WriteLine("Serialzation Failed");
                 }
-                Console.WriteLine(Instruction.instructConvert(instruct.type));
                 
+                Console.WriteLine(Instruction.instructConvert(instruct.type));
+                Console.WriteLine(instruct.getpayload(0));
                 // Check for end-of-file tag. If it is not there, read 
                 // more data.
                // content = state.sb.ToString();
@@ -137,7 +139,7 @@ namespace ServerRiskItForTheB
             handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
                 new AsyncCallback(ReadCallback), state);
         }
-
+        */
         }
     
 

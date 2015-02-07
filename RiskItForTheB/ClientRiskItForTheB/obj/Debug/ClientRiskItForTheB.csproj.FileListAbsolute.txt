@@ -8,3 +8,4 @@ C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ClientRiskItForTheB\obj
 C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ClientRiskItForTheB\obj\Debug\ClientRiskItForTheB.pdb
 C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ClientRiskItForTheB\bin\Debug\ClientRiskItForTheB.exe
 C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ClientRiskItForTheB\bin\Debug\ClientRiskItForTheB.pdb
+C:\Users\David\Desktop\RiskItForTheBiscuit\RiskItForTheB\ClientRiskItForTheB\obj\Debug\ClientRiskItForTheB.csprojResolveAssemblyReference.cache
