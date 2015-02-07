@@ -31,12 +31,13 @@ namespace ClientRiskItForTheB
 
         public void haveTurn()
         {
-            while (true)
-            {
-                SynchronousSocketClient.sendMessage();
-            }
-        }
 
+                SynchronousSocketClient.sendMessage();
+
+                SynchronousSocketClient.waitAndGetResponse();
+
+        }
+        /*
         public static int Main(String[] args)
         {
             ClientGame name = new ClientGame();
@@ -47,5 +48,6 @@ namespace ClientRiskItForTheB
 
             return 0;
         }
+         * */
     }
 }

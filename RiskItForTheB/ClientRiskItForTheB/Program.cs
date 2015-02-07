@@ -6,6 +6,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
+using System.Threading;
 
 namespace ClientRiskItForTheB
 {
@@ -13,6 +14,11 @@ namespace ClientRiskItForTheB
 
     public class SynchronousSocketClient
     {
+
+        public static IPAddress ipAddress;
+        public static IPEndPoint remoteEP;
+        public static ManualResetEvent allDone = new ManualResetEvent(false);
+
         static byte[] GetBytes(string str)
         {
             byte[] b2 = System.Text.Encoding.ASCII.GetBytes(str);
@@ -52,8 +58,8 @@ namespace ClientRiskItForTheB
                 serverIP[2] = 222;
                 serverIP[3] = 176;
                  * */
-                IPAddress ipAddress = new IPAddress(serverIP);
-                IPEndPoint remoteEP = new IPEndPoint(ipAddress, 11000);
+                ipAddress = new IPAddress(serverIP);
+                remoteEP = new IPEndPoint(ipAddress, 11000);
 
                 // Create a TCP/IP  socket.
                 sender = new Socket(AddressFamily.InterNetwork,
@@ -137,8 +143,12 @@ namespace ClientRiskItForTheB
             formatter.Serialize(fs, instruct);
             byte[] buffer = fs.ToArray();
             Console.WriteLine(buffer.ToString());
+            
             sender.Send(buffer);
         }
+
+
+
         public static void closeSocket()
         {
             sender.Shutdown(SocketShutdown.Both);
@@ -147,6 +157,16 @@ namespace ClientRiskItForTheB
 
         public static void waitAndGetResponse()
         {
+            byte[] bytes = new Byte[1024];
+            while (true)
+            {
+                int bytesRcvd = sender.Receive(bytes);
+                Console.WriteLine(bytesRcvd);
+                Console.Write(String.Format("Response received: {0}",
+                Encoding.ASCII.GetString(bytes, 0, bytes.Length),
+                "Connected to server"));
+                Array.Clear(bytes, 0, bytes.Length);
+            }
 
         }
 
