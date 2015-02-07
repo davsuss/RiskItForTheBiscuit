@@ -16,6 +16,7 @@ namespace ServerRiskItForTheB
         // Thread signal.
         public static ManualResetEvent allDone = new ManualResetEvent(false);
         private Game curGame;
+        int connections = 0;
 
         public MainServer()
         {
@@ -49,7 +50,7 @@ namespace ServerRiskItForTheB
             try
             {
                 listener.Bind(localEndPoint);
-                listener.Listen(100);
+                listener.Listen(1);
 
                 while (true)
                 {
@@ -57,13 +58,17 @@ namespace ServerRiskItForTheB
                     allDone.Reset();
 
                     // Start an asynchronous socket to listen for connections.
-                    Console.WriteLine("Waiting for a connection...");
-                    listener.BeginAccept(
-                        new AsyncCallback(AcceptCallback),
-                        listener);
+                    if (connections < 4)
+                    {
+                        Console.WriteLine("Waiting for a connection...");
+                        listener.BeginAccept(
+                            new AsyncCallback(AcceptCallback),
+                            listener);
+                    }
 
                     // Wait until a connection is made before continuing.
                     allDone.WaitOne();
+                    connections++;
                 }
 
             }
@@ -87,6 +92,7 @@ namespace ServerRiskItForTheB
             Socket handler = listener.EndAccept(ar);
 
             Console.WriteLine("I am connected to " + handler.RemoteEndPoint);
+            Console.WriteLine("Number of connections: " + connections);
            
             curGame.handleSocket(handler);
 
