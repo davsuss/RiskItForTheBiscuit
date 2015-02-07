@@ -143,6 +143,40 @@ public class Response
     {
         return (Response)HelperFunction.deseralize(data, bytesread, typeof(Response));
     }
+    public static string ResponseConvert(ResponseType x)
+    {
+        switch (x)
+        {
+            case (ResponseType.OK):
+                {
+                    return "OK";
+                }
+            case (ResponseType.DONTOWN):
+                {
+                    return "DONTOWN";
+                }
+            case (ResponseType.NOTENOUGHARMY):
+                {
+                    return "NOTENOUGHARMY";
+                }
+            case (ResponseType.SELECTLOCATION):
+                {
+                    return "SELECTLOCATION";
+                }
+            case (ResponseType.TOOMANYARMY):
+                {
+                    return "TOOMANYARMY";
+                }
+            case (ResponseType.UNKNOWNINSTRUCTION):
+                {
+                    return "UNKNOWNINSTRUCTION";
+                }
+            default:
+                {
+                    return "UNKNOWN";
+                }
+        }
+    }
 
 }
 

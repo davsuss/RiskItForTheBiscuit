@@ -220,7 +220,7 @@ namespace ClientRiskItForTheB
                 {
                     Console.WriteLine("Serialzation Failed");
                 }
-                Console.WriteLine(re);
+                Console.WriteLine(Response.ResponseConvert(re.response));
             }
 
             handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,

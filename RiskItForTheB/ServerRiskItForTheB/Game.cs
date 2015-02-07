@@ -25,6 +25,37 @@ namespace ServerRiskItForTheB
             s.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0
                                  , new AsyncCallback(handleRecieveCallBack), state);
         }
+
+        private static void Send(Socket handler, Response data)
+        {
+            // Convert the string data to byte data using ASCII encoding.
+            byte[] byteData = data.serialize();
+
+            // Begin sending the data to the remote device.
+            handler.BeginSend(byteData, 0, byteData.Length, 0,
+                new AsyncCallback(SendCallback), handler);
+        }
+
+        private static void SendCallback(IAsyncResult ar)
+        {
+            try
+            {
+                // Retrieve the socket from the state object.
+                Socket handler = (Socket)ar.AsyncState;
+
+                // Complete sending the data to the remote device.
+                int bytesSent = handler.EndSend(ar);
+                Console.WriteLine("Sent {0} bytes to client.", bytesSent);
+
+
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+        
         public void handleRecieveCallBack(IAsyncResult ar)
         {
             String content = String.Empty;
@@ -33,21 +64,16 @@ namespace ServerRiskItForTheB
             // from the asynchronous state object.
             StateObject state = (StateObject)ar.AsyncState;
             Socket handler = state.workSocket;
-
+            Instruction instruct = new Instruction();
             // Read data from the client socket. 
             int bytesRead = handler.EndReceive(ar);
 
             if (bytesRead > 0)
             {
-                // There  might be more data, so store the data received so far.
-                XmlSerializer formattor = new XmlSerializer(typeof(Instruction));
-                Instruction instruct = new Instruction();
-                byte[] y = new byte[bytesRead];
-                Array.Copy(state.buffer, y, bytesRead);
-                MemoryStream ms = new MemoryStream(y);
+
                 try
                 {
-                    instruct = (Instruction)formattor.Deserialize(ms);
+                    instruct = Instruction.deseralize(bytesRead,state.buffer);
                 }
                 catch (Exception x)
                 {
@@ -55,7 +81,9 @@ namespace ServerRiskItForTheB
                 }
                 handleInstruction(instruct);
             }
-            
+            Response re = new Response();
+            re.response = ResponseType.UNKNOWNINSTRUCTION;
+            Send(handler, re);
             handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
                 new AsyncCallback(handleRecieveCallBack), state);
 
